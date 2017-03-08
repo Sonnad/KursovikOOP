@@ -7,13 +7,13 @@ public class Sim {
     private String simNumber;
     private String tariff;
     private int yearOfIssue;
-    private boolean shit;
+    private boolean аvailability;
 
-    public Sim(String simNumber, String tariff, int yearOfIssue, boolean shit) {
+    public Sim(String simNumber, String tariff, int yearOfIssue, boolean аvailability) {
         this.simNumber = simNumber;
         this.tariff = tariff;
         this.yearOfIssue = yearOfIssue;
-        this.shit = shit;
+        this.аvailability = аvailability;
     }
 
     public String getSimNumber() {
@@ -40,11 +40,11 @@ public class Sim {
         this.yearOfIssue = yearOfIssue;
     }
 
-    public boolean isShit() {
-        return shit;
+    public boolean isАvailability() {
+        return аvailability;
     }
 
-    public void setShit(boolean shit) {
-        this.shit = shit;
+    public void setАvailability(boolean аvailability) {
+        this.аvailability = аvailability;
     }
 }
