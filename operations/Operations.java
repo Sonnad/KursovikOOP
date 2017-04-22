@@ -20,9 +20,9 @@ public class Operations {
         {
             try {
             exit = "1";
-            System.out.print("Номер сим карты в формате NNN-NNNNNNN: ");
+            System.out.print("\nНомер сим карты в формате NNN-NNNNNNN: ");
             String simNumber = reader.readLine();
-            if (simBase.searchBySimNumber(simNumber)) {
+            if (simBase.searchBySimNumber(simNumber) != null) {
                 System.out.println("\nОШИБКА!! СИМ КАРТА С ДАННЫМ НОМЕРОМ УЖЕ СУЩЕСТВУЕТ\n");
                 continue;
             }
@@ -30,11 +30,11 @@ public class Operations {
             String tariff = reader.readLine();
             System.out.print("Год выпуска: ");
             int yearOfIssue = Integer.parseInt(reader.readLine());
-            simBase.addElement(new Sim(simNumber, tariff, yearOfIssue));
-            System.out.print("Нажмите 0 для продолжения ввода данных иди любую клавишу для возврата в преыдущее меню. ");
+            simBase.addElement(new Sim(simNumber, tariff.toLowerCase(), yearOfIssue));
+            System.out.print("\nНажмите 0 для возврата в предыдущее меню или любую клавишу для продолжения ввода данных. ");
                 exit = reader.readLine();
             } catch (Exception e) {}
-            System.out.println("\n\n\n");
+            System.out.println();
         }
     }
 
@@ -45,14 +45,31 @@ public class Operations {
         {
             try {
                 exit = "1";
-                System.out.print("Номер сим карты в формате NNN-NNNNNNN: ");
+                System.out.print("\nНомер сим карты в формате NNN-NNNNNNN: ");
                 String simNumber = reader.readLine();
                  if (simBase.removeElement(simNumber)) System.out.println("Сим карта успешно удалена");
-                 else System.out.println("Сим карта с указанным номером не найдена");
-                System.out.print("Нажмите 0 для продолжения удаления данных иди любую клавишу для возврата в преыдущее меню. ");
+                 else System.out.println("\nСим карта с указанным номером не найдена");
+                System.out.print("\nНажмите 0 для возврата в предыдущее меню или любую клавишу для продолжения удаления данных. ");
                 exit = reader.readLine();
             } catch (Exception e) {}
-            System.out.println("\n\n\n");
+            System.out.println();
+        }
+    }
+
+    public static void searchSimByTariff(final Hash simBase)
+    {
+        String exit = "1";
+        while (!exit.equals("0"))
+        {
+            try {
+                exit = "1";
+                System.out.print("\nНазвание тарифа: ");
+                String tariff = reader.readLine();
+                simBase.searchByTariff(tariff);
+                System.out.print("\nНажмите 0 для возврата в предыдущее меню или любую клавишу для продолжения поиска. ");
+                exit = reader.readLine();
+            } catch (Exception e) {}
+            System.out.println();
         }
     }
 
