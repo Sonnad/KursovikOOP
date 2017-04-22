@@ -51,6 +51,6 @@ public class Sim {
     @Override
     public String toString()
     {
-     return "Номер сим карты: " + simNumber + " Тариф: " + tariff + " Год выпуска: " + yearOfIssue;
+     return "Номер сим карты: " + simNumber + " Тариф: " + tariff + " Год выпуска: " + yearOfIssue + " Доступность: " + ((isАvailability()==true)? "Карта доступна": "Карта выдана");
     }
 }
