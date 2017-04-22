@@ -9,11 +9,11 @@ public class Sim {
     private int yearOfIssue;
     private boolean аvailability;
 
-    public Sim(String simNumber, String tariff, int yearOfIssue, boolean аvailability) {
+    public Sim(String simNumber, String tariff, int yearOfIssue) {
         this.simNumber = simNumber;
         this.tariff = tariff;
         this.yearOfIssue = yearOfIssue;
-        this.аvailability = аvailability;
+        this.аvailability = true;
     }
 
     public String getSimNumber() {
@@ -46,5 +46,11 @@ public class Sim {
 
     public void setАvailability(boolean аvailability) {
         this.аvailability = аvailability;
+    }
+
+    @Override
+    public String toString()
+    {
+     return "Номер сим карты: " + simNumber + " Тариф: " + tariff + " Год выпуска: " + yearOfIssue;
     }
 }
